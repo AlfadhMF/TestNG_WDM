@@ -26,10 +26,10 @@ public class BaseClass {
 	public void SetUp() throws MalformedURLException, InterruptedException {
 
 		String DriverType = System.getProperty("Browser");
-		if (DriverType.contains("firefox")) {
+		if (DriverType.contains("chrome")) {
 
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
 
 		} else if (DriverType.contains("remote")) {
 			
@@ -38,7 +38,7 @@ public class BaseClass {
 			options.addArguments("--disable-dev-shm-using") ;
 			options.addArguments("--window-size=1920,1080");
 			options.addArguments("--headless") ;;
-			driver = new RemoteWebDriver(new URL("http://3.87.30.31:4444"),options);
+			driver = new RemoteWebDriver(new URL("http://54.174.23.217:8080"),options);
 		}
 		
 		else {
